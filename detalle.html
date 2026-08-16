@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del juego</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="detail.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <img src="img/steamng.png" width="90" alt="Steam logo" />
+          <span>Steam</span>
+        </div>
+
+        <nav class="main-nav">
+          <a href="index.html">Inicio</a>
+          <a href="#">Tienda</a>
+          <a href="#">Explorar</a>
+          <a href="#">Biblioteca</a>
+          <a href="#">Soporte</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="detail-page">
+      <section class="container detail-layout">
+        <div class="detail-gallery">
+          <div class="main-display">
+            <button class="gallery-nav prev" aria-label="Ver imagen anterior">&#8249;</button>
+            <div class="main-image-shell">
+              <img id="mainDisplayImage" src="img/slime-logo.jpg" alt="Slime Rancher" class="is-visible" />
+            </div>
+            <button class="gallery-nav next" aria-label="Ver siguiente imagen">&#8250;</button>
+          </div>
+
+          <div class="thumbnail-strip" aria-label="Miniaturas del juego">
+            <button class="thumb is-active" data-index="0" data-image="img/slime-logo.jpg" aria-label="Ver imagen 1">
+              <img src="img/slime-logo.jpg" alt="Slime Rancher" />
+            </button>
+            <button class="thumb" data-index="1" data-image="img/ultrakill-logo.jpg" aria-label="Ver imagen 2">
+              <img src="img/ultrakill-logo.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="2" data-image="img/celeste-logo.jpg" aria-label="Ver imagen 3">
+              <img src="img/celeste-logo.jpg" alt="Celeste" />
+            </button>
+            <button class="thumb" data-index="3" data-image="img/pizza-log.jpg" aria-label="Ver imagen 4">
+              <img src="img/pizza-log.jpg" alt="Pizza Tower" />
+            </button>
+          </div>
+        </div>
+
+        <aside class="detail-panel">
+          <h1>Slime Rancher</h1>
+          <div class="game-tags">
+            <span class="tag">Aventura</span>
+            <span class="tag">Indie</span>
+            <span class="tag">Exploración</span>
+          </div>
+
+          <div class="detail-price">
+            <span class="old-price">$39.99</span>
+            <span class="new-price">$19.99</span>
+          </div>
+
+          <button class="btn btn-primary detail-button">Comprar ahora</button>
+          <button class="btn btn-secondary detail-audio">▶ Escuchar prueba de música</button>
+        </aside>
+      </section>
+
+      <section class="container detail-content">
+        <div class="description-box">
+          <h2>Descripción</h2>
+          <p>nose</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Detalles</h3>
+          <ul>
+            <li>Desarrollador: --------</li>
+            <li>Editor: --------</li>
+            <li>Plataforma: --------</li>
+            <li>Género: --------</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div>
+          <h4>SteamStore</h4>
+          <p>Tu tienda digital para descubrir juegos y experiencias.</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="#">Soporte</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
