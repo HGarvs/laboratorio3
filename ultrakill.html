@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del juego</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="detail.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <img src="img/steamng.png" width="90" alt="Steam logo" />
+          <span>Steam</span>
+        </div>
+
+        <nav class="main-nav">
+          <a href="index.html">Inicio</a>
+          <a href="#">Tienda</a>
+          <a href="#">Explorar</a>
+          <a href="#">Biblioteca</a>
+          <a href="#">Soporte</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="detail-page">
+      <section class="container detail-layout">
+        <div class="detail-gallery">
+          <div class="main-display">
+            <button class="gallery-nav prev" aria-label="Ver imagen anterior">&#8249;</button>
+            <div class="main-image-shell">
+              <img id="mainDisplayImage" src="img/ultrakill-logo.jpg" alt="Ultrakill" class="is-visible" />
+            </div>
+            <button class="gallery-nav next" aria-label="Ver siguiente imagen">&#8250;</button>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="thumbnail-strip" aria-label="Miniaturas del juego">
+            <button class="thumb is-active" data-index="0" data-image="img/ultrakill-imagenes/u1.jpg" aria-label="Ver imagen 1">
+              <img src="img/ultrakill-imagenes/u1.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="1" data-image="img/ultrakill-imagenes/u2.jpg" aria-label="Ver imagen 2">
+              <img src="img/ultrakill-imagenes/u2.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="2" data-image="img/ultrakill-imagenes/u3.jpg" aria-label="Ver imagen 3">
+              <img src="img/ultrakill-imagenes/u3.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="3" data-image="img/ultrakill-imagenes/u4.jpg" aria-label="Ver imagen 4">
+              <img src="img/ultrakill-imagenes/u4.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="4" data-image="img/ultrakill-imagenes/u5.jpg" aria-label="Ver imagen 5">
+              <img src="img/ultrakill-imagenes/u5.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="5" data-image="img/ultrakill-imagenes/u6.jpg" aria-label="Ver imagen 6">
+              <img src="img/ultrakill-imagenes/u6.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="6" data-image="img/ultrakill-imagenes/u7.jpg" aria-label="Ver imagen 7">
+              <img src="img/ultrakill-imagenes/u7.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="7" data-image="img/ultrakill-imagenes/u8.jpg" aria-label="Ver imagen 8">
+              <img src="img/ultrakill-imagenes/u8.jpg" alt="Ultrakill" />
+            </button>
+            <button class="thumb" data-index="8" data-image="img/ultrakill-imagenes/u9.jpg" aria-label="Ver imagen 9">
+              <img src="img/ultrakill-imagenes/u9.jpg" alt="Ultrakill" />
+            </button>
+          </div>
+        </div>
+
+        <aside class="detail-panel">
+          <h1>ULTRAKILL</h1>
+          <div class="game-tags">
+            <span class="tag">FPS</span>
+            <span class="tag">Indie</span>
+            <span class="tag">Un jugador</span>
+          </div>
+
+          <div class="detail-price">
+            <span class="old-price">$39.99</span>
+            <span class="new-price">$19.99</span>
+          </div>
+
+          <a href="compra.html?title=ULTRAKILL&image=img/ultrakill-logo.jpg&price=19.99&oldPrice=39.99" class="btn btn-primary detail-button">Comprar ahora</a>
+          <button class="btn btn-secondary detail-audio" type="button" aria-expanded="false" aria-controls="musicInfo">▶ Escuchar prueba de música</button>
+          <audio id="deepBlueAudio" src="music/deep-blue.mp3" preload="auto"></audio>
+          <div class="logo-musica" id="musicInfo" aria-live="polite">
+            <img src="img/ultrakill-imagenes/u-music.png" alt="Portada del tema Deep Blue" />
+            <h2>Deep blue - Heaven Pierce Her</h2>
+          </div>
+        </aside>
+      </section>
+
+      <section class="container detail-content">
+        <div class="description-box">
+          <h2>Descripción</h2>
+        <div class="gif-container">
+          <img src="img/ultrakill-imagenes/u-gif1.gif" class="steam-gif">
+        </div>
+        <p>ULTRAKILL es un FPS de la vieja escuela, ultraviolento y de ritmo trepidante, que fusiona shooters clásicos como Quake, shooters modernos como Doom (2016) y juegos de acción con personajes como Devil May Cry.</p>
+        <p>La humanidad se ha extinguido y los únicos seres que quedan en la Tierra son máquinas alimentadas por sangre.</p>
+        <p>Pero ahora que la sangre empieza a escasear en la superficie...</p>
+        <p>Las máquinas se precipitan hacia las profundidades del infierno en busca de más.</p>
+        <div class="gif-container">
+          <img src="img/ultrakill-imagenes/u-gif2.gif" class="steam-gif">
+        </div>
+        <p>Usa tus múltiples habilidades de movimiento para mantenerte ágil y esquivar los implacables ataques de los muertos, los demonios y otras máquinas.</p>
+        <p>Destrúyelos con un arsenal de armas increíblemente poderosas, cada una con múltiples variantes disponibles.</p>
+        <p>Empápate de su sangre para recuperar salud y seguir luchando.</p>
+        <div class="gif-container">
+          <img src="img/ultrakill-imagenes/u-gif3.gif" class="steam-gif">
+        </div>
+          <p>Mata rápido y con SSStyle para acumular combos y ganar puntos que podrás usar en las variaciones de armas entre misiones.</p>
+          <p>Domina los numerosos niveles para alcanzar rangos altos y enfrentarte a desafíos opcionales únicos.</p>
+          <p>Explora los variados y únicos entornos de la campaña inspirados en el Infierno de Dante para encontrar un sinfín de secretos ocultos</p>
+        </div>
+
+        <div class="info-box">
+          <h3>Detalles</h3>
+          <ul>
+            <li>Desarrollador: --------</li>
+            <li>Editor: --------</li>
+            <li>Plataforma: --------</li>
+            <li>Género: --------</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div>
+          <h4>Steam</h4>
+          <p>Tu tienda digital para descubrir juegos y experiencias.</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="#">Soporte</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
