@@ -5,22 +5,65 @@ const nextBtn = document.querySelector('.gallery-nav.next');
 const musicButton = document.querySelector('.detail-audio');
 const deepBlueAudio = document.getElementById('deepBlueAudio');
 const musicInfo = document.getElementById('musicInfo');
+const musicSlides = Array.from(document.querySelectorAll('.music-slide'));
+const prevMusicBtn = document.querySelector('.music-prev');
+const nextMusicBtn = document.querySelector('.music-next');
 
 let currentIndex = 0;
+let currentMusicIndex = 0;
+let activeVideo = null;
 
 function updateGallery(index) {
   if (!mainImage || thumbs.length === 0) return;
 
+  // Detener video activo anterior
+  if (activeVideo) {
+    activeVideo.pause();
+    activeVideo.currentTime = 0;
+  }
+
   currentIndex = (index + thumbs.length) % thumbs.length;
   const selectedThumb = thumbs[currentIndex];
-  const nextSrc = selectedThumb.dataset.image;
+  const thumbVideo = selectedThumb.querySelector('video');
+  const thumbImg = selectedThumb.querySelector('img');
+  const mainShell = mainImage.parentElement;
 
   mainImage.style.opacity = '0.35';
   mainImage.style.transform = 'scale(1.02)';
 
   setTimeout(() => {
-    mainImage.src = nextSrc;
-    mainImage.alt = selectedThumb.querySelector('img')?.alt || 'Imagen del juego';
+    // Limpiar cualquier video previo en mainShell
+    const existingVideo = mainShell.querySelector('video');
+    if (existingVideo && existingVideo !== thumbVideo) {
+      existingVideo.remove();
+    }
+
+    // Si el thumbnail contiene video
+    if (thumbVideo) {
+      activeVideo = thumbVideo;
+      mainImage.style.display = 'none';
+      
+      // Clonar el video al main-image-shell
+      let videoClone = mainShell.querySelector('video');
+      if (!videoClone) {
+        videoClone = thumbVideo.cloneNode(true);
+        videoClone.style.display = 'block';
+        mainShell.appendChild(videoClone);
+      }
+      videoClone.style.display = 'block';
+    } else if (thumbImg) {
+      // Si es una imagen
+      activeVideo = null;
+      mainImage.style.display = 'block';
+      mainImage.src = thumbImg.src;
+      mainImage.alt = thumbImg.alt || 'Imagen del juego';
+      
+      // Remover video si existe
+      const existingVideo = mainShell.querySelector('video');
+      if (existingVideo) {
+        existingVideo.remove();
+      }
+    }
     mainImage.style.opacity = '1';
     mainImage.style.transform = 'scale(1)';
   }, 150);
@@ -40,6 +83,41 @@ function updateProgressBar() {
   document.querySelector('.progress-fill').style.width = progress + '%';
 }
 
+function updateMusicCarousel(index) {
+  if (!musicSlides.length) return;
+
+  currentMusicIndex = (index + musicSlides.length) % musicSlides.length;
+
+  musicSlides.forEach((slide, slideIndex) => {
+    const offset = (slideIndex - currentMusicIndex + musicSlides.length) % musicSlides.length;
+    slide.classList.remove('is-active', 'is-prev', 'is-next', 'is-hidden');
+
+    if (offset === 0) {
+      slide.classList.add('is-active');
+    } else if (offset === musicSlides.length - 1) {
+      slide.classList.add('is-prev');
+    } else if (offset === 1) {
+      slide.classList.add('is-next');
+    } else {
+      slide.classList.add('is-hidden');
+    }
+  });
+
+  const activeSlide = musicSlides[currentMusicIndex];
+  const nextAudio = activeSlide.dataset.audio;
+
+  if (deepBlueAudio && nextAudio) {
+    const wasPlaying = !deepBlueAudio.paused && !deepBlueAudio.ended;
+    deepBlueAudio.src = nextAudio;
+    deepBlueAudio.load();
+
+    if (wasPlaying) {
+      deepBlueAudio.currentTime = 0;
+      deepBlueAudio.play().catch(() => {});
+    }
+  }
+}
+
 if (musicButton && deepBlueAudio && musicInfo) {
   const setMusicButtonLabel = (isPlaying) => {
     musicButton.textContent = isPlaying ? '❚❚ Pausar música' : '▶ Escuchar prueba de música';
@@ -51,7 +129,9 @@ if (musicButton && deepBlueAudio && musicInfo) {
   };
 
   musicButton.addEventListener('click', async () => {
-    if (!deepBlueAudio.paused && !deepBlueAudio.ended) {
+    const shouldPlay = !deepBlueAudio.paused && !deepBlueAudio.ended;
+
+    if (shouldPlay) {
       deepBlueAudio.pause();
       setMusicButtonLabel(false);
       toggleMusicPanel(false);
@@ -82,11 +162,45 @@ if (musicButton && deepBlueAudio && musicInfo) {
   });
 }
 
+prevMusicBtn?.addEventListener('click', () => updateMusicCarousel(currentMusicIndex - 1));
+nextMusicBtn?.addEventListener('click', () => updateMusicCarousel(currentMusicIndex + 1));
+
 thumbs.forEach((thumb, index) => {
-  thumb.addEventListener('click', () => updateGallery(index));
+  thumb.addEventListener('click', () => {
+    updateGallery(index);
+    // Si el thumb tiene video, reproducirlo en el área principal al hacer clic
+    const thumbVideo = thumb.querySelector('video');
+    if (thumbVideo) {
+      const mainShell = mainImage.parentElement;
+      setTimeout(() => {
+        const mainVideo = mainShell.querySelector('video');
+        if (mainVideo) {
+          mainVideo.currentTime = 0;
+          mainVideo.play().catch(() => {});
+        }
+      }, 160);
+    }
+  });
 });
 
 prevBtn?.addEventListener('click', () => updateGallery(currentIndex - 1));
 nextBtn?.addEventListener('click', () => updateGallery(currentIndex + 1));
 
 updateProgressBar();
+updateMusicCarousel(0);
+
+// Inicializar la galería mostrando el primer elemento (que puede ser video)
+if (thumbs.length > 0) {
+  const firstThumb = thumbs[0];
+  const firstVideo = firstThumb.querySelector('video');
+  if (firstVideo) {
+    activeVideo = firstVideo;
+    mainImage.style.display = 'none';
+    const mainShell = mainImage.parentElement;
+    const videoClone = firstVideo.cloneNode(true);
+    videoClone.style.display = 'block';
+    mainShell.appendChild(videoClone);
+  } else {
+    mainImage.style.display = 'block';
+  }
+}

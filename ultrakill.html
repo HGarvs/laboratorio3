@@ -31,7 +31,7 @@
           <div class="main-display">
             <button class="gallery-nav prev" aria-label="Ver imagen anterior">&#8249;</button>
             <div class="main-image-shell">
-              <img id="mainDisplayImage" src="img/ultrakill-logo.jpg" alt="Ultrakill" class="is-visible" />
+              <img id="mainDisplayImage" src="img/ultrakill-imagenes/u1.jpg" alt="Ultrakill" class="is-visible" />
             </div>
             <button class="gallery-nav next" aria-label="Ver siguiente imagen">&#8250;</button>
             <div class="progress-bar">
@@ -40,38 +40,42 @@
           </div>
 
           <div class="thumbnail-strip" aria-label="Miniaturas del juego">
-            <button class="thumb is-active" data-index="0" data-image="img/ultrakill-imagenes/u1.jpg" aria-label="Ver imagen 1">
+            <button class="thumb is-active" data-index="0" data-image="video/YTDown.com_YouTube_ULTRAKILL-The-ULTRA-REVAMP-Update_Media_NRMUN55jOg_001_1080p.mp4" aria-label="Ver video">
+              <video src="video/YTDown.com_YouTube_ULTRAKILL-The-ULTRA-REVAMP-Update_Media_NRMUN55jOg_001_1080p.mp4" playsinline></video>
+            </button>
+            <button class="thumb" data-index="1" data-image="img/ultrakill-imagenes/u1.jpg" aria-label="Ver imagen 1">
               <img src="img/ultrakill-imagenes/u1.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="1" data-image="img/ultrakill-imagenes/u2.jpg" aria-label="Ver imagen 2">
+            <button class="thumb" data-index="2" data-image="img/ultrakill-imagenes/u2.jpg" aria-label="Ver imagen 2">
               <img src="img/ultrakill-imagenes/u2.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="2" data-image="img/ultrakill-imagenes/u3.jpg" aria-label="Ver imagen 3">
+            <button class="thumb" data-index="3" data-image="img/ultrakill-imagenes/u3.jpg" aria-label="Ver imagen 3">
               <img src="img/ultrakill-imagenes/u3.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="3" data-image="img/ultrakill-imagenes/u4.jpg" aria-label="Ver imagen 4">
+            <button class="thumb" data-index="4" data-image="img/ultrakill-imagenes/u4.jpg" aria-label="Ver imagen 4">
               <img src="img/ultrakill-imagenes/u4.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="4" data-image="img/ultrakill-imagenes/u5.jpg" aria-label="Ver imagen 5">
+            <button class="thumb" data-index="5" data-image="img/ultrakill-imagenes/u5.jpg" aria-label="Ver imagen 5">
               <img src="img/ultrakill-imagenes/u5.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="5" data-image="img/ultrakill-imagenes/u6.jpg" aria-label="Ver imagen 6">
+            <button class="thumb" data-index="6" data-image="img/ultrakill-imagenes/u6.jpg" aria-label="Ver imagen 6">
               <img src="img/ultrakill-imagenes/u6.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="6" data-image="img/ultrakill-imagenes/u7.jpg" aria-label="Ver imagen 7">
+            <button class="thumb" data-index="7" data-image="img/ultrakill-imagenes/u7.jpg" aria-label="Ver imagen 7">
               <img src="img/ultrakill-imagenes/u7.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="7" data-image="img/ultrakill-imagenes/u8.jpg" aria-label="Ver imagen 8">
+            <button class="thumb" data-index="8" data-image="img/ultrakill-imagenes/u8.jpg" aria-label="Ver imagen 8">
               <img src="img/ultrakill-imagenes/u8.jpg" alt="Ultrakill" />
             </button>
-            <button class="thumb" data-index="8" data-image="img/ultrakill-imagenes/u9.jpg" aria-label="Ver imagen 9">
+            <button class="thumb" data-index="9" data-image="img/ultrakill-imagenes/u9.jpg" aria-label="Ver imagen 9">
               <img src="img/ultrakill-imagenes/u9.jpg" alt="Ultrakill" />
             </button>
           </div>
         </div>
 
         <aside class="detail-panel">
-          <h1>ULTRAKILL</h1>
+          <img src="img/ultrakill-logo.jpg" alt="ULTRAKILL logo" class="game-logo" />
+          <br>
           <div class="game-tags">
             <span class="tag">FPS</span>
             <span class="tag">Indie</span>
@@ -87,8 +91,24 @@
           <button class="btn btn-secondary detail-audio" type="button" aria-expanded="false" aria-controls="musicInfo">▶ Escuchar prueba de música</button>
           <audio id="deepBlueAudio" src="music/deep-blue.mp3" preload="auto"></audio>
           <div class="logo-musica" id="musicInfo" aria-live="polite">
-            <img src="img/ultrakill-imagenes/u-music.png" alt="Portada del tema Deep Blue" />
-            <h2>Deep blue - Heaven Pierce Her</h2>
+            <div class="music-carousel" aria-label="Selección de música de prueba">
+              <button class="music-nav music-prev" type="button" aria-label="Canción anterior">&#8249;</button>
+              <div class="music-viewport">
+                <article class="music-slide is-active" data-audio="music/deep-blue.mp3">
+                  <img src="img/ultrakill-imagenes/u-music.png" alt="Portada del tema Deep Blue" />
+                  <h2>Deep blue - <a href="https://music.youtube.com/channel/UC2R-KAGDm9vo_gDUtY34z_w" target="_blank" rel="noreferrer">Heaven Pierce Her</a></h2>
+                </article>
+                <article class="music-slide" data-audio="music/Glory [kzbbO_lyZ94].mp3">
+                  <img src="img/ultrakill-imagenes/u-music2.png" alt="Portada del tema Glory" />
+                  <h2>Glory - <a href="https://music.youtube.com/channel/UC2R-KAGDm9vo_gDUtY34z_w" target="_blank" rel="noreferrer">Heaven Pierce Her</a></h2>
+                </article>
+                <article class="music-slide" data-audio="music/In Absentia ΛΟΓΟΣ [QDYUiCPLtxk].mp3">
+                  <img src="img/ultrakill-imagenes/u-music3.png" alt="Portada del tema In Absentia" />
+                  <h2>In Absentia - <a href="https://music.youtube.com/channel/UC2R-KAGDm9vo_gDUtY34z_w" target="_blank" rel="noreferrer">Heaven Pierce Her</a></h2>
+                </article>
+              </div>
+              <button class="music-nav music-next" type="button" aria-label="Siguiente canción">&#8250;</button>
+            </div>
           </div>
         </aside>
       </section>
