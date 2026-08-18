@@ -1,155 +1,739 @@
-.checkout-page {
-    padding: 48px 0 80px;
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+
+    --line: rgba(255, 255, 255, 0.12);
+
+    --shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35);
+
+    --muted: #9ca3af;
+
+    --text: #ffffff;
+
+    --background: #080b12;
+
+    --card: rgba(17, 24, 39, 0.88);
+
 }
+
+
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #182033 0%,
+            #080b12 55%
+        );
+
+    color: var(--text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+}
+
+
+a {
+    color: inherit;
+}
+
+
+/* =========================================
+   CONTENEDOR
+========================================= */
+
+.container {
+
+    width: min(1100px, 92%);
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+
+    background: rgba(8, 11, 18, 0.92);
+
+    border-bottom:
+        1px solid var(--line);
+
+    padding: 18px 0;
+
+}
+
+
+.header-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.logo {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 1.5rem;
+
+    font-weight: 800;
+
+}
+
+
+.main-nav {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.main-nav a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+    transition: 0.2s;
+
+}
+
+
+.main-nav a:hover {
+
+    color: white;
+
+}
+
+
+/* =========================================
+   PÁGINA DE COMPRA
+========================================= */
+
+.checkout-page {
+
+    padding: 48px 0 80px;
+
+}
+
 
 .checkout-grid {
+
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+
+    grid-template-columns:
+        1.1fr 0.9fr;
+
     gap: 28px;
+
     align-items: start;
+
 }
+
+
+/* =========================================
+   TARJETAS
+========================================= */
 
 .checkout-card {
-    background: rgba(17, 24, 39, 0.82);
-    border: 1px solid var(--line);
+
+    background:
+        var(--card);
+
+    border:
+        1px solid var(--line);
+
     border-radius: 20px;
+
     padding: 28px;
-    box-shadow: var(--shadow);
+
+    box-shadow:
+        var(--shadow);
+
 }
+
+
+/* =========================================
+   CABECERA DE COMPRA
+========================================= */
 
 .checkout-header {
+
     display: flex;
+
     align-items: center;
+
     gap: 18px;
-    margin-bottom: 24px;
+
+    margin-bottom: 28px;
+
 }
+
 
 .checkout-cover {
+
     width: 92px;
+
     height: 92px;
+
     border-radius: 18px;
+
     overflow: hidden;
-    border: 1px solid var(--line);
+
+    border:
+        1px solid var(--line);
+
     flex-shrink: 0;
+
 }
+
 
 .checkout-cover img {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
 }
+
 
 .checkout-header h1 {
+
     margin: 0;
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
+
+    font-size:
+        clamp(
+            1.8rem,
+            3vw,
+            2.5rem
+        );
+
 }
+
 
 .checkout-header p {
-    margin: 4px 0 0;
+
+    margin: 6px 0 0;
+
     color: var(--muted);
+
 }
+
+
+/* =========================================
+   FORMULARIO
+========================================= */
 
 .checkout-form {
+
     display: grid;
+
     gap: 18px;
+
 }
+
 
 .form-row {
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap: 16px;
+
 }
+
 
 .field {
+
     display: grid;
+
     gap: 8px;
+
 }
 
+
 .field label {
+
     font-size: 0.9rem;
+
     color: var(--muted);
+
+    font-weight: 600;
+
 }
+
 
 .field input,
 .field select {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(15, 23, 42, 0.8);
+
+    width: 100%;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+    background:
+        rgba(15, 23, 42, 0.8);
+
     color: var(--text);
+
     border-radius: 10px;
+
     padding: 12px 14px;
+
     font-size: 1rem;
+
+    outline: none;
+
+    transition: 0.2s;
+
 }
 
-.summary-box {
-    display: grid;
-    gap: 18px;
+
+.field input:focus,
+.field select:focus {
+
+    border-color:
+        rgba(255, 255, 255, 0.4);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255, 255, 255, 0.05);
+
 }
 
-.summary-line {
-    display: flex;
-    justify-content: space-between;
-    color: var(--muted);
-    gap: 16px;
+
+.field input::placeholder {
+
+    color: #6b7280;
+
 }
 
-.summary-line strong,
-.summary-total {
-    color: var(--text);
-}
 
-.summary-line .price-line {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.summary-total {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 16px;
-    border-top: 1px solid var(--line);
-    font-size: 1.15rem;
-    font-weight: 700;
-}
+/* =========================================
+   MÉTODO DE PAGO
+========================================= */
 
 .payment-select-wrap {
+
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
 }
+
+
+.payment-select-wrap select {
+
+    flex: 1;
+
+}
+
 
 .payment-logo {
-    width: 42px;
-    height: 28px;
+
+    width: 60px;
+
+    height: 38px;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
     overflow: hidden;
+
     flex-shrink: 0;
+
 }
+
 
 .payment-logo img {
+
     width: 100%;
+
     height: 100%;
+
     object-fit: cover;
+
 }
+
+
+/* =========================================
+   AVISO
+========================================= */
+
+.payment-notice {
+
+    background:
+        rgba(245, 158, 11, 0.08);
+
+    border:
+        1px solid
+        rgba(245, 158, 11, 0.25);
+
+    border-radius: 10px;
+
+    padding: 14px;
+
+}
+
+
+.payment-notice strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+}
+
+
+.payment-notice p {
+
+    color: var(--muted);
+
+    font-size: 0.9rem;
+
+    margin: 0;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================
+   RESUMEN
+========================================= */
+
+.summary-box {
+
+    display: grid;
+
+    gap: 18px;
+
+}
+
+
+.summary-box h2 {
+
+    margin:
+        0 0 5px;
+
+}
+
+
+.summary-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    color: var(--muted);
+
+    gap: 16px;
+
+}
+
+
+.summary-line strong {
+
+    color: var(--text);
+
+}
+
+
+.price-line {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.old-price {
+
+    text-decoration: line-through;
+
+    color: #6b7280;
+
+}
+
+
+.summary-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid var(--line);
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
 
 .checkout-actions {
+
     display: flex;
+
     gap: 12px;
+
     margin-top: 12px;
+
 }
 
-.checkout-actions .btn {
+
+.btn {
+
     flex: 1;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding:
+        12px 18px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    border: none;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+
 }
+
+
+.btn:hover {
+
+    transform:
+        translateY(-2px);
+
+    opacity: 0.9;
+
+}
+
+
+.btn-primary {
+
+    background: white;
+
+    color: #080b12;
+
+}
+
+
+.btn-secondary {
+
+    background:
+        rgba(255, 255, 255, 0.08);
+
+    color: white;
+
+    border:
+        1px solid var(--line);
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+
+    border-top:
+        1px solid var(--line);
+
+    background:
+        rgba(8, 11, 18, 0.9);
+
+    padding: 30px 0;
+
+}
+
+
+.footer-content {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.footer-content h3 {
+
+    margin-top: 0;
+
+}
+
+
+.footer-content p {
+
+    color: var(--muted);
+
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.footer-links a {
+
+    color: var(--muted);
+
+    text-decoration: none;
+
+}
+
+
+.footer-links a:hover {
+
+    color: white;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media (max-width: 860px) {
-    .checkout-grid,
-    .form-row {
+
+    .checkout-grid {
+
         grid-template-columns: 1fr;
+
     }
+
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .header-content {
+
+        flex-direction: column;
+
+        gap: 15px;
+
+    }
+
+
+    .checkout-header {
+
+        align-items: flex-start;
+
+    }
+
+
+    .checkout-card {
+
+        padding: 20px;
+
+    }
+
+
+    .checkout-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .footer-content {
+
+        flex-direction: column;
+
+    }
+
 }
