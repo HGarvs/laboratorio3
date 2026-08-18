@@ -1,118 +1,590 @@
+/* =========================================
+   JUEGO POR DEFECTO
+========================================= */
+
 const defaultGame = {
-  title: 'ULTRAKILL',
-  image: 'img/ultrakill-logo.jpg',
-  price: 19.99,
-  oldPrice: 39.99
+
+    title: 'ULTRAKILL',
+
+    image: 'img/ultrakill-logo.jpg',
+
+    price: 19.99,
+
+    oldPrice: 39.99
+
 };
 
-const params = new URLSearchParams(window.location.search);
+
+/* =========================================
+   OBTENER DATOS DE LA URL
+========================================= */
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
 const game = {
-  title: params.get('title') || defaultGame.title,
-  image: params.get('image') || defaultGame.image,
-  price: Number(params.get('price') || defaultGame.price),
-  oldPrice: Number(params.get('oldPrice') || defaultGame.oldPrice)
+
+    title:
+        params.get('title')
+        || defaultGame.title,
+
+    image:
+        params.get('image')
+        || defaultGame.image,
+
+    price:
+        Number(
+            params.get('price')
+            || defaultGame.price
+        ),
+
+    oldPrice:
+        Number(
+            params.get('oldPrice')
+            || defaultGame.oldPrice
+        )
+
 };
 
-const currency = (value) => `$${Number(value).toFixed(2)}`;
 
-document.title = `Compra - ${game.title}`;
-document.getElementById('checkoutGameTitle').textContent = game.title;
-document.getElementById('checkoutGameImage').src = game.image;
-document.getElementById('checkoutGameImage').alt = game.title;
-document.getElementById('summaryGameName').textContent = game.title;
-document.getElementById('summaryOldPrice').textContent = currency(game.oldPrice);
-document.getElementById('summaryPrice').textContent = currency(game.price);
-document.getElementById('summaryTotal').textContent = currency(game.price);
+/* =========================================
+   FORMATO DE MONEDA
+========================================= */
 
-const paymentSelect = document.getElementById('metodo');
-const cardBrandLogo = document.getElementById('cardBrandLogo');
-const logoMap = {
-  visa: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" width="84" height="52" viewBox="0 0 84 52">
-      <rect width="84" height="52" rx="8" fill="#1a1f71"/>
-      <text x="42" y="30" text-anchor="middle" fill="#ffffff" font-size="22" font-family="Arial, sans-serif" font-weight="700">VISA</text>
-    </svg>
-  `),
-  mastercard: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" width="84" height="52" viewBox="0 0 84 52">
-      <rect width="84" height="52" rx="8" fill="#f6f6f6"/>
-      <circle cx="32" cy="26" r="13" fill="#eb001b"/>
-      <circle cx="52" cy="26" r="13" fill="#f79e1b"/>
-      <path d="M40 26c3.5-5 8.3-8 14-8 4.2 0 8.1 1.7 11 4.5-2.8 2.8-6.6 4.5-11 4.5-5.7 0-10.5-3.1-14-7.5z" fill="#ff5f00" opacity="0.8"/>
-    </svg>
-  `),
-  amex: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" width="84" height="52" viewBox="0 0 84 52">
-      <rect width="84" height="52" rx="8" fill="#0a3d91"/>
-      <text x="42" y="31" text-anchor="middle" fill="#ffffff" font-size="16" font-family="Arial, sans-serif" font-weight="700">AMEX</text>
-    </svg>
-  `),
-  paypal: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" width="84" height="52" viewBox="0 0 84 52">
-      <rect width="84" height="52" rx="8" fill="#f5f7fb"/>
-      <path d="M27 18h16c9.5 0 15.5 5.3 15.5 13.5 0 10.8-7.5 17.5-19 17.5H29l-2.5 16H18l6.5-47zm18.2 11.7h-8.5l-1.1 6.7h7.1c6.6 0 9.2-2.7 9.2-7.1 0-4.2-2.7-6.6-6.7-6.6z" fill="#0070ba"/>
-    </svg>
-  `)
+const currency = (value) => {
+
+    return `$${Number(value).toFixed(2)}`;
+
 };
 
-function updateCardLogo() {
-  const value = paymentSelect.value;
-  cardBrandLogo.src = logoMap[value] || logoMap.visa;
+
+/* =========================================
+   ELEMENTOS DEL HTML
+========================================= */
+
+const gameTitle =
+    document.getElementById(
+        'checkoutGameTitle'
+    );
+
+
+const gameImage =
+    document.getElementById(
+        'checkoutGameImage'
+    );
+
+
+const summaryGameName =
+    document.getElementById(
+        'summaryGameName'
+    );
+
+
+const summaryOldPrice =
+    document.getElementById(
+        'summaryOldPrice'
+    );
+
+
+const summaryPrice =
+    document.getElementById(
+        'summaryPrice'
+    );
+
+
+const summaryTotal =
+    document.getElementById(
+        'summaryTotal'
+    );
+
+
+const summaryQuantity =
+    document.getElementById(
+        'summaryQuantity'
+    );
+
+
+const productInput =
+    document.getElementById(
+        'producto'
+    );
+
+
+const quantityInput =
+    document.getElementById(
+        'cantidad'
+    );
+
+
+const formPrice =
+    document.getElementById(
+        'formPrice'
+    );
+
+
+const formOldPrice =
+    document.getElementById(
+        'formOldPrice'
+    );
+
+
+const formTotal =
+    document.getElementById(
+        'formTotal'
+    );
+
+
+const formSubject =
+    document.getElementById(
+        'formSubject'
+    );
+
+
+/* =========================================
+   MOSTRAR INFORMACIÓN DEL JUEGO
+========================================= */
+
+document.title =
+    `Compra - ${game.title}`;
+
+
+if (gameTitle) {
+
+    gameTitle.textContent =
+        game.title;
+
 }
 
 
-const checkoutForm = document.querySelector('.checkout-form');
+if (gameImage) {
+
+    gameImage.src =
+        game.image;
+
+    gameImage.alt =
+        game.title;
+
+}
+
+
+if (summaryGameName) {
+
+    summaryGameName.textContent =
+        game.title;
+
+}
+
+
+if (summaryOldPrice) {
+
+    summaryOldPrice.textContent =
+        currency(game.oldPrice);
+
+}
+
+
+if (summaryPrice) {
+
+    summaryPrice.textContent =
+        currency(game.price);
+
+}
+
+
+if (productInput) {
+
+    productInput.value =
+        game.title;
+
+}
+
+
+/* =========================================
+   MÉTODO DE PAGO
+========================================= */
+
+const paymentSelect =
+    document.getElementById(
+        'metodo'
+    );
+
+
+const cardBrandLogo =
+    document.getElementById(
+        'cardBrandLogo'
+    );
+
+
+/* =========================================
+   LOGOS
+========================================= */
+
+const logoMap = {
+
+
+    visa:
+
+        'data:image/svg+xml;charset=UTF-8,' +
+
+        encodeURIComponent(`
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="84"
+                height="52"
+                viewBox="0 0 84 52"
+            >
+
+                <rect
+                    width="84"
+                    height="52"
+                    rx="8"
+                    fill="#1a1f71"
+                />
+
+                <text
+                    x="42"
+                    y="32"
+                    text-anchor="middle"
+                    fill="#ffffff"
+                    font-size="22"
+                    font-family="Arial"
+                    font-weight="700"
+                >
+                    VISA
+                </text>
+
+            </svg>
+
+        `),
+
+
+    mastercard:
+
+        'data:image/svg+xml;charset=UTF-8,' +
+
+        encodeURIComponent(`
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="84"
+                height="52"
+                viewBox="0 0 84 52"
+            >
+
+                <rect
+                    width="84"
+                    height="52"
+                    rx="8"
+                    fill="#f6f6f6"
+                />
+
+                <circle
+                    cx="32"
+                    cy="26"
+                    r="13"
+                    fill="#eb001b"
+                />
+
+                <circle
+                    cx="52"
+                    cy="26"
+                    r="13"
+                    fill="#f79e1b"
+                />
+
+                <text
+                    x="42"
+                    y="48"
+                    text-anchor="middle"
+                    fill="#333"
+                    font-size="7"
+                    font-family="Arial"
+                >
+                    Mastercard
+                </text>
+
+            </svg>
+
+        `),
+
+
+    amex:
+
+        'data:image/svg+xml;charset=UTF-8,' +
+
+        encodeURIComponent(`
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="84"
+                height="52"
+                viewBox="0 0 84 52"
+            >
+
+                <rect
+                    width="84"
+                    height="52"
+                    rx="8"
+                    fill="#0a3d91"
+                />
+
+                <text
+                    x="42"
+                    y="32"
+                    text-anchor="middle"
+                    fill="#ffffff"
+                    font-size="16"
+                    font-family="Arial"
+                    font-weight="700"
+                >
+                    AMEX
+                </text>
+
+            </svg>
+
+        `),
+
+
+    paypal:
+
+        'data:image/svg+xml;charset=UTF-8,' +
+
+        encodeURIComponent(`
+
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="84"
+                height="52"
+                viewBox="0 0 84 52"
+            >
+
+                <rect
+                    width="84"
+                    height="52"
+                    rx="8"
+                    fill="#f5f7fb"
+                />
+
+                <text
+                    x="42"
+                    y="31"
+                    text-anchor="middle"
+                    fill="#0070ba"
+                    font-size="13"
+                    font-family="Arial"
+                    font-weight="700"
+                >
+                    PayPal
+                </text>
+
+            </svg>
+
+        `)
+
+};
+
+
+/* =========================================
+   CAMBIAR LOGO
+========================================= */
+
+function updateCardLogo() {
+
+    if (!paymentSelect || !cardBrandLogo) {
+
+        return;
+
+    }
+
+
+    const value =
+        paymentSelect.value;
+
+
+    cardBrandLogo.src =
+        logoMap[value]
+        || logoMap.visa;
+
+
+    cardBrandLogo.alt =
+        value;
+
+}
+
+
+if (paymentSelect) {
+
+    paymentSelect.addEventListener(
+        'change',
+        updateCardLogo
+    );
+
+}
+
+
+updateCardLogo();
+
+
+/* =========================================
+   ACTUALIZAR TOTAL
+========================================= */
+
+function updateTotal() {
+
+    if (!quantityInput) {
+
+        return;
+
+    }
+
+
+    let quantity =
+        Number(
+            quantityInput.value
+        );
+
+
+    if (
+        !quantity ||
+        quantity < 1
+    ) {
+
+        quantity = 1;
+
+        quantityInput.value = 1;
+
+    }
+
+
+    const total =
+        game.price * quantity;
+
+
+    if (summaryQuantity) {
+
+        summaryQuantity.textContent =
+            quantity;
+
+    }
+
+
+    if (summaryPrice) {
+
+        summaryPrice.textContent =
+            currency(game.price);
+
+    }
+
+
+    if (summaryTotal) {
+
+        summaryTotal.textContent =
+            currency(total);
+
+    }
+
+
+    if (formPrice) {
+
+        formPrice.value =
+            currency(game.price);
+
+    }
+
+
+    if (formOldPrice) {
+
+        formOldPrice.value =
+            currency(game.oldPrice);
+
+    }
+
+
+    if (formTotal) {
+
+        formTotal.value =
+            currency(total);
+
+    }
+
+}
+
+
+if (quantityInput) {
+
+    quantityInput.addEventListener(
+        'input',
+        updateTotal
+    );
+
+}
+
+
+updateTotal();
+
+
+/* =========================================
+   FORMSPREE
+========================================= */
+
+const checkoutForm =
+    document.querySelector(
+        '.checkout-form'
+    );
+
 
 if (checkoutForm) {
 
-  checkoutForm.addEventListener('submit', function () {
 
-    // Crear campos ocultos para enviar información de la compra
-
-    const addHiddenField = (name, value) => {
-
-      let field = checkoutForm.querySelector(
-        `input[name="${name}"]`
-      );
-
-      if (!field) {
-
-        field = document.createElement('input');
-
-        field.type = 'hidden';
-        field.name = name;
-
-        checkoutForm.appendChild(field);
-      }
-
-      field.value = value;
-    };
+    checkoutForm.addEventListener(
+        'submit',
+        function () {
 
 
-    // Información del juego
-    addHiddenField('producto', game.title);
+            /*
+             * Actualizar información
+             * justo antes de enviar.
+             */
 
-    addHiddenField('precio', currency(game.price));
+            updateTotal();
 
-    addHiddenField('precio_anterior', currency(game.oldPrice));
 
-    addHiddenField('total', currency(game.price));
+            /*
+             * Asunto del correo.
+             */
 
-    // Método de pago
-    addHiddenField(
-      'metodo_pago',
-      paymentSelect.value
+            if (formSubject) {
+
+                formSubject.value =
+                    `Nueva compra - ${game.title}`;
+
+            }
+
+
+            /*
+             * Producto.
+             */
+
+            if (productInput) {
+
+                productInput.value =
+                    game.title;
+
+            }
+
+
+            /*
+             * No usamos preventDefault().
+             *
+             * Esto permite que el formulario
+             * se envíe directamente a Formspree.
+             */
+
+        }
     );
-
-    // Asunto del correo
-    addHiddenField(
-      '_subject',
-      `Nueva compra - ${game.title}`
-    );
-
-  });
 
 }
-
-paymentSelect.addEventListener('change', updateCardLogo);
-updateCardLogo();
