@@ -60,5 +60,59 @@ function updateCardLogo() {
   cardBrandLogo.src = logoMap[value] || logoMap.visa;
 }
 
+
+const checkoutForm = document.querySelector('.checkout-form');
+
+if (checkoutForm) {
+
+  checkoutForm.addEventListener('submit', function () {
+
+    // Crear campos ocultos para enviar información de la compra
+
+    const addHiddenField = (name, value) => {
+
+      let field = checkoutForm.querySelector(
+        `input[name="${name}"]`
+      );
+
+      if (!field) {
+
+        field = document.createElement('input');
+
+        field.type = 'hidden';
+        field.name = name;
+
+        checkoutForm.appendChild(field);
+      }
+
+      field.value = value;
+    };
+
+
+    // Información del juego
+    addHiddenField('producto', game.title);
+
+    addHiddenField('precio', currency(game.price));
+
+    addHiddenField('precio_anterior', currency(game.oldPrice));
+
+    addHiddenField('total', currency(game.price));
+
+    // Método de pago
+    addHiddenField(
+      'metodo_pago',
+      paymentSelect.value
+    );
+
+    // Asunto del correo
+    addHiddenField(
+      '_subject',
+      `Nueva compra - ${game.title}`
+    );
+
+  });
+
+}
+
 paymentSelect.addEventListener('change', updateCardLogo);
 updateCardLogo();
