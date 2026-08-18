@@ -38,48 +38,112 @@
             </div>
           </div>
 
-          <form class="checkout-form">
+          <form
+            class="checkout-form"
+            action="https://formspree.io/f/TU_ID_DE_FORMSPREE"
+            method="POST"
+          >
             <div class="field">
               <label for="email">Correo electrónico</label>
-              <input id="email" type="email" placeholder="tuemail@ejemplo.com" />
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="tuemail@ejemplo.com"
+                required
+              />
             </div>
 
             <div class="form-row">
               <div class="field">
                 <label for="nombre">Nombre</label>
-                <input id="nombre" type="text" placeholder="Tu nombre" />
+                <input
+                  id="nombre"
+                  name="nombre"
+                  type="text"
+                  placeholder="Tu nombre"
+                  required
+                />
               </div>
               <div class="field">
                 <label for="apellido">Apellido</label>
-                <input id="apellido" type="text" placeholder="Tu apellido" />
+                <input
+                  id="apellido"
+                  name="apellido"
+                  type="text"
+                  placeholder="Tu apellido"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="producto">Producto</label>
+              <input
+                id="producto"
+                name="producto"
+                type="text"
+                placeholder="Producto seleccionado"
+                value="ULTRAKILL"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="cantidad">Cantidad</label>
+                <input
+                  id="cantidad"
+                  name="cantidad"
+                  type="number"
+                  min="1"
+                  value="1"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="precio">Precio</label>
+                <input
+                  id="precio"
+                  name="precio"
+                  type="text"
+                  value="$19.99"
+                  readonly
+                />
               </div>
             </div>
 
             <div class="field">
               <label for="metodo">Método de pago</label>
               <div class="payment-select-wrap">
-                <div class="payment-logo">
-                  <img id="cardBrandLogo" src="" alt="Logo de tarjeta" />
-                </div>
-                <select id="metodo">
-                  <option value="visa" data-brand="visa">Visa</option>
-                  <option value="mastercard" data-brand="mastercard">Mastercard</option>
-                  <option value="amex" data-brand="amex">American Express</option>
-                  <option value="paypal" data-brand="paypal">PayPal</option>
+                <select
+                  id="metodo"
+                  name="metodo_pago"
+                  required
+                >
+                  <option value="">Selecciona un método</option>
+                  <option value="Visa">Visa</option>
+                  <option value="Mastercard">Mastercard</option>
+                  <option value="American Express">American Express</option>
+                  <option value="PayPal">PayPal</option>
                 </select>
               </div>
             </div>
 
-            <div class="form-row">
-              <div class="field">
-                <label for="numero">Número de tarjeta</label>
-                <input id="numero" type="text" placeholder="1234 5678 9012 3456" />
-              </div>
-              <div class="field">
-                <label for="cvv">CVV</label>
-                <input id="cvv" type="text" placeholder="123" />
-              </div>
+            <div class="payment-notice">
+              <p>
+                💳 El método de pago es una simulación para este proyecto. No ingreses información real de tarjetas.
+              </p>
             </div>
+
+            <input type="hidden" name="_subject" value="Nueva compra - ULTRAKILL" />
+            <input type="hidden" name="_replyto" id="replyto" />
+            <input
+              type="hidden"
+              name="total"
+              id="formTotal"
+              value="$19.99"
+            />
 
             <div class="checkout-actions">
               <a href="ultrakill.html" class="btn btn-secondary">Volver</a>

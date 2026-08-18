@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del juego</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../detail.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <img src="../img/steamng.png" width="90" alt="Steam logo" />
+          <a href="../index.html" rel="noreferrer" class="steam-principal">Steam</a>
+        </div>
+
+        <nav class="main-nav">
+          <a href="../index.html">Inicio</a>
+          <a href="#">Tienda</a>
+          <a href="#">Explorar</a>
+          <a href="#">Biblioteca</a>
+          <a href="#">Soporte</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="detail-page">
+      <section class="container detail-layout">
+        <div class="detail-gallery">
+          <div class="main-display">
+            <button class="gallery-nav prev" aria-label="Ver imagen anterior">&#8249;</button>
+            <div class="main-image-shell">
+              <img id="mainDisplayImage" src="../img/pizza-imagenes/p1.png" class="is-visible" />
+            </div>
+            <button class="gallery-nav next" aria-label="Ver siguiente imagen">&#8250;</button>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="thumbnail-strip" aria-label="Miniaturas del juego">
+            <button class="thumb is-active" data-index="0" data-image="../video/Pizza Tower Steam Trailer.mp4" aria-label="Ver video">
+              <video src="../video/Pizza Tower Steam Trailer.mp4" playsinline controls muted></video>
+              <span class="video-badge">VIDEO</span>
+            </button>
+            <button class="thumb" data-index="1" data-image="../img/pizza-imagenes/p1.png" aria-label="Ver imagen 1">
+              <img src="../img/pizza-imagenes/p1.png" />
+            </button>
+            <button class="thumb" data-index="2" data-image="../img/pizza-imagenes/p2.png" aria-label="Ver imagen 2">
+              <img src="../img/pizza-imagenes/p2.png" alt="Pizza Tower" />
+            </button>
+            <button class="thumb" data-index="3" data-image="../img/pizza-imagenes/p3.png" aria-label="Ver imagen 3">
+              <img src="../img/pizza-imagenes/p3.png" alt="Pizza Tower" />
+            </button>
+            <button class="thumb" data-index="4" data-image="../img/pizza-imagenes/p4.png" aria-label="Ver imagen 4">
+              <img src="../img/pizza-imagenes/p4.png" alt="Pizza Tower" />
+            </button>
+            <button class="thumb" data-index="5" data-image="../img/pizza-imagenes/p5.png" aria-label="Ver imagen 5">
+              <img src="../img/pizza-imagenes/p5.png" alt="Pizza Tower" />
+            </button>
+            <button class="thumb" data-index="6" data-image="../img/pizza-imagenes/p6.png" aria-label="Ver imagen 6">
+              <img src="../img/pizza-imagenes/p6.png" alt="Pizza Tower" />
+            </button>
+          </div>
+        </div>
+
+        <aside class="detail-panel">
+          <img src="../img/pizza-log.jpg" alt="Pizza Tower logo" class="game-logo" />
+          <br>
+          <div class="game-tags">
+            <span class="tag">FPS</span>
+            <span class="tag">Indie</span>
+            <span class="tag">Un jugador</span>
+          </div>
+
+          <div class="detail-price">
+            <span class="old-price">$39.99</span>
+            <span class="new-price">$19.99</span>
+          </div>
+
+          <a href="../compra.html?title=Pizza Tower&image=img/pizza-log.jpg&price=19.99&oldPrice=39.99" class="btn btn-primary detail-button">Comprar ahora</a>
+          <button class="btn btn-secondary detail-audio" type="button" aria-expanded="false" aria-controls="musicInfo">▶ Escuchar prueba de música</button>
+          <audio id="deepBlueAudio" src="../music/deep-blue.mp3" preload="auto"></audio>
+          <div class="logo-musica" id="musicInfo" aria-live="polite">
+            <div class="music-carousel" aria-label="Selección de música de prueba">
+              <button class="music-nav music-prev" type="button" aria-label="Canción anterior">&#8249;</button>
+              <div class="music-viewport">
+                <article class="music-slide is-active" data-audio="../music/Tombstone Arizona [Kw-tXfBPTdg].mp3">
+                  <img src="../img/pizza-imagenes/p-music.png"/>
+                  <h2>Tombstobe Arizona - <a href="https://music.youtube.com/playlist?list=OLAK5uy_nBHgqqZ183JBw9_VrlJGQGs1IctCDCm74&si=J2jx6zEfIoIcOU6h">Pizza Tower Soundtrack</a></h2>
+                </article>
+                <article class="music-slide" data-audio="../music/Pumpin' Hot Stuff [OEsv1HZY0pk].mp3">
+                  <img src="../img/pizza-imagenes/p-music.png"/>
+                  <h2>Pumpin' Hot Stuff - <a href="https://music.youtube.com/playlist?list=OLAK5uy_nBHgqqZ183JBw9_VrlJGQGs1IctCDCm74&si=J2jx6zEfIoIcOU6h" target="_blank" rel="noreferrer">Pizza Tower Soundtrack</a></h2>
+                </article>
+                <article class="music-slide" data-audio="../music/World Wide Noise [bdwCjKBeWUk].mp3">
+                  <img src="../img/pizza-imagenes/p-music2.png"/>
+                  <h2>World Wide Noise - <a href="https://music.youtube.com/playlist?list=OLAK5uy_nd6_RaD6hoyiWja1A3-JyMwjszQ4UFvto&si=Yjwt1555dlYun7L-" target="_blank" rel="noreferrer">Pizza Tower (Original Game Soundtrack - Bonus Tracks)</a></h2>
+                </article>
+              </div>
+              <button class="music-nav music-next" type="button" aria-label="Siguiente canción">&#8250;</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="container detail-content">
+        <div class="description-box">
+          <h2>Descripción</h2>
+          <img src="../img/pizza-imagenes/p-gif1.gif"/>
+          <br>
+          <p>Pizza Tower es un trepidante juego de plataformas en 2D que destaca el movimiento, la exploración y la puntuación de los ataques. Ofrece unos preciosos gráficos pixelados inspirados en las series de dibujos animados de los años 90, así como una banda sonora frenética.
+Peppino Espagueti, un italiano orondo, calvo, sorprendentemente ágil y poderoso, tiene una misión: acabar con la Torre de Pizza para salvar su restaurante de la destrucción. Síguelo en su alocada carrera por los pisos de la torre, mientras recoge ingredientes y derrota a los monstruos.
+JUEGA en el papel de Peppino Espagueti, ¡el puretón italiano supersónico! Y, a veces, también como Gustavo.</p>
+            <br>
+            <img src="../img/pizza-imagenes/p-gif2.gif"/>
+            <p>EXPLORA 5 pisos compuestos por numerosos niveles, ¡y descubre todos sus secretos!</p>
+            <br>
+            <img src="../img/pizza-imagenes/p-gif3.avif"/>
+            <p>PELEA con algunos monstruos… ¡y otros bichos rarunos!</p>
+            <br>
+            <img src="../img/pizza-imagenes/p-gif4.avif"/>
+            <p>DESTRÚYELO todo a tu paso, incluso a esas estúpidas ratas.</p>
+            <br>
+            <img src="../img/pizza-imagenes/p-gif5.avif"/>
+            <p>CONVIÉRTETE... ¡en la Torre de Pizza!</p>
+            <img src="../img/pizza-imagenes/p-gif6.avif"/>
+          <ul>
+            <li>Unos personajes y animaciones muy locos.</li>
+            <li>Una banda sonora que te pone las pilas.</li>
+            <li>Un juego de plataformas diferente.</li>
+            <li>Juega a tu gusto, ya sea buscando batir la máxima puntuación o explorando a tu ritmo.</li>
+            <br>
+          </ul>
+
+        <div class="info-box">
+          <h3>Detalles</h3>
+          <ul>
+            <li>Desarrollador: --------</li>
+            <li>Editor: --------</li>
+            <li>Plataforma: --------</li>
+            <li>Género: --------</li>
+          </ul>
+
+          <h3>Requisitos del sistema</h3>
+          <b>Minimo</b>
+          <ul>
+            <li>Sistema operativo: Windows 7 or newer</li>
+            <li>Procesador: Intel Core i3 M380</li>
+            <li>Memoria: 2 GB de RAM</li>
+            <li>Gráficos: Intel HD 4000</li>
+            <li>DirectX: Versión 10</li>
+            <li>Almacenamiento: 1200 MB de espacio disponible</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div>
+          <h4>Steam</h4>
+          <p>Tu tienda digital para descubrir juegos y experiencias.</p>
+        </div>
+        <div class="footer-links">
+          <a href="../index.html">Inicio</a>
+          <a href="#">Soporte</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../app.js"></script>
+  </body>
+</html>

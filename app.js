@@ -41,19 +41,28 @@ function updateGallery(index) {
     // Si el thumbnail contiene video
     if (thumbVideo) {
       activeVideo = thumbVideo;
+      mainImage.classList.remove('is-visible');
       mainImage.style.display = 'none';
       
       // Clonar el video al main-image-shell
       let videoClone = mainShell.querySelector('video');
       if (!videoClone) {
         videoClone = thumbVideo.cloneNode(true);
+        videoClone.classList.add('is-visible');
         videoClone.style.display = 'block';
+        videoClone.style.opacity = '1';
+        videoClone.style.transform = 'scale(1)';
         mainShell.appendChild(videoClone);
+      } else {
+        videoClone.classList.add('is-visible');
+        videoClone.style.display = 'block';
+        videoClone.style.opacity = '1';
+        videoClone.style.transform = 'scale(1)';
       }
-      videoClone.style.display = 'block';
     } else if (thumbImg) {
       // Si es una imagen
       activeVideo = null;
+      mainImage.classList.add('is-visible');
       mainImage.style.display = 'block';
       mainImage.src = thumbImg.src;
       mainImage.alt = thumbImg.alt || 'Imagen del juego';
@@ -195,12 +204,21 @@ if (thumbs.length > 0) {
   const firstVideo = firstThumb.querySelector('video');
   if (firstVideo) {
     activeVideo = firstVideo;
+    mainImage.classList.remove('is-visible');
     mainImage.style.display = 'none';
     const mainShell = mainImage.parentElement;
     const videoClone = firstVideo.cloneNode(true);
+    videoClone.classList.add('is-visible');
     videoClone.style.display = 'block';
+    videoClone.style.opacity = '1';
+    videoClone.style.transform = 'scale(1)';
     mainShell.appendChild(videoClone);
+    // Auto-reproducir el video inicial
+    setTimeout(() => {
+      videoClone.play().catch(() => {});
+    }, 100);
   } else {
+    mainImage.classList.add('is-visible');
     mainImage.style.display = 'block';
   }
 }

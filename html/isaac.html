@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle del juego</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../detail.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav">
+        <div class="brand">
+          <img src="../img/steamng.png" width="90" alt="Steam logo" />
+          <a href="../index.html" rel="noreferrer" class="steam-principal">Steam</a>
+        </div>
+
+        <nav class="main-nav">
+          <a href="../index.html">Inicio</a>
+          <a href="#">Tienda</a>
+          <a href="#">Explorar</a>
+          <a href="#">Biblioteca</a>
+          <a href="#">Soporte</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="detail-page">
+      <section class="container detail-layout">
+        <div class="detail-gallery">
+          <div class="main-display">
+            <button class="gallery-nav prev" aria-label="Ver imagen anterior">&#8249;</button>
+            <div class="main-image-shell">
+              <img id="mainDisplayImage" src="../img/isaac-imagenes/a1.png" class="is-visible" />
+            </div>
+            <button class="gallery-nav next" aria-label="Ver siguiente imagen">&#8250;</button>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="thumbnail-strip" aria-label="Miniaturas del juego">
+            <button class="thumb is-active" data-index="0" data-image="../video/The Binding of Isaac_ Repentance Release date trailer.mp4" aria-label="Ver video">
+              <video src="../video/The Binding of Isaac_ Repentance Release date trailer.mp4" playsinline controls muted></video>
+              <span class="video-badge">VIDEO</span>
+            </button>
+            <button class="thumb" data-index="1" data-image="../img/isaac-imagenes/a-1.png" aria-label="Ver imagen 1">
+              <img src="../img/isaac-imagenes/a-1.png" alt="The Binding of Isaac" />
+            </button>
+            <button class="thumb" data-index="2" data-image="../img/isaac-imagenes/a2.png" aria-label="Ver imagen 2">
+              <img src="../img/isaac-imagenes/a2.png" alt="The Binding of Isaac" />
+            </button>
+            <button class="thumb" data-index="3" data-image="../img/isaac-imagenes/a3.png" aria-label="Ver imagen 3">
+              <img src="../img/isaac-imagenes/a3.png" alt="The Binding of Isaac" />
+            </button>
+            <button class="thumb" data-index="5" data-image="../img/isaac-imagenes/a5.png" aria-label="Ver imagen 5">
+              <img src="../img/isaac-imagenes/a5.png" alt="The Binding of Isaac" />
+            </button>
+            <button class="thumb" data-index="6" data-image="../img/isaac-imagenes/a6.png" aria-label="Ver imagen 6">
+              <img src="../img/isaac-imagenes/a6.png" alt="The Binding of Isaac" />
+            </button>
+            <button class="thumb" data-index="7" data-image="../img/isaac-imagenes/a7.png" aria-label="Ver imagen 7">
+              <img src="../img/isaac-imagenes/a7.png" alt="The Binding of Isaac" />
+            </button>
+            <button class="thumb" data-index="8" data-image="../img/isaac-imagenes/a8.png" aria-label="Ver imagen 8">
+              <img src="../img/isaac-imagenes/a8.png" alt="The Binding of Isaac" />
+            </button>
+          </div>
+        </div>
+
+        <aside class="detail-panel">
+          <img src="../img/isaac-logo.jpg" alt="The Binding of Isaac logo" class="game-logo" />
+          <br>
+          <div class="game-tags">
+            <span class="tag">Roguelike</span>
+            <span class="tag">Indie</span>
+            <span class="tag">Multijugador</span>
+          </div>
+
+          <div class="detail-price">
+            <span class="old-price">$14.99</span>
+            <span class="new-price">$14.99</span>
+          </div>
+
+          <a href="../compra.html?title=The%20Binding%20of%20Isaac%20Rebirth&image=img/isaac-logo.jpg&price=14.99&oldPrice=14.99" class="btn btn-primary detail-button">Comprar ahora</a>
+          <button class="btn btn-secondary detail-audio" type="button" aria-expanded="false" aria-controls="musicInfo">▶ Escuchar prueba de música</button>
+          <audio id="deepBlueAudio" src="../music/deep-blue.mp3" preload="auto"></audio>
+          <div class="logo-musica" id="musicInfo" aria-live="polite">
+            <div class="music-carousel" aria-label="Selección de música de prueba">
+              <button class="music-nav music-prev" type="button" aria-label="Canción anterior">&#8249;</button>
+              <div class="music-viewport">
+                <article class="music-slide is-active" data-audio="../music/Genesis Retake Light [H9jqfH6Yp7w].mp3">
+                  <img src="../img/isaac-imagenes/i-music1.png"/>
+                  <h2>Genesis Retake Light - <a href="https://music.youtube.com/playlist?list=OLAK5uy_nYnV2XhkNdIo9j-Jyowx2r9clyGOa7Gk4&si=21CPGSP-8SMlPb1O">The Binding of Isaac: Repentance (Original Soundtrack)
+</a></h2>
+                </article>
+                <article class="music-slide" data-audio="../music/Stargazer (Planetarium) [_sOQYJW-Tso].mp3">
+                  <img src="../img/isaac-imagenes/i-music1.png"/>
+                  <h2>Stargazer (Planetarium) - <a href="https://music.youtube.com/playlist?list=OLAK5uy_nBHgqqZ183JBw9_VrlJGQGs1IctCDCm74&si=J2jx6zEfIoIcOU6h" target="_blank" rel="noreferrer">The Binding of Isaac: Repentance (Original Soundtrack)</a></h2>
+                </article>
+                <article class="music-slide" data-audio="../music/Matricide (Mom Fight) [0RELL2O-tf8].mp3">
+                  <img src="../img/isaac-imagenes/i-music.png"/>
+                  <h2>Matricide (Mom Fight) - <a href="https://music.youtube.com/playlist?list=OLAK5uy_nd6_RaD6hoyiWja1A3-JyMwjszQ4UFvto&si=Yjwt1555dlYun7L-" target="_blank" rel="noreferrer">The Binding of Isaac: Rebirth (Original Soundtrack)</a></h2>
+                </article>
+              </div>
+              <button class="music-nav music-next" type="button" aria-label="Siguiente canción">&#8250;</button>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="container detail-content">
+        <div class="description-box">
+          <h2>Descripción</h2>
+          <p>Cuando la madre de Isaac empieza a escuchar la voz de Dios exigiendo un sacrificio para demostrar su fe, Isaac escapa al sótano enfrentándose a hordas de enemigos desquiciados, hermanos y hermanas perdidos, sus miedos, y finalmente su madre.</p>
+          <p><strong>The Binding of Isaac</strong> es un videojuego de acción RPG generado aleatoriamente con elementos Roguelike pesados. Siguiendo el viaje de Isaac, los jugadores encontrarán tesoros bizarros que cambian la forma de Isaac dándole habilidades sobrehumanas y permitiéndole luchar contra hordas de criaturas misteriosas, descubrir secretos y abrirse camino hacia la seguridad.</p>
+          <ul>
+            <li>Más de 500 horas de jugabilidad</li>
+            <li>¡4 MIL MILLONES de partidas semilladas!</li>
+            <li>20 desafíos</li>
+            <li>450+ objetos, incluyendo 160 desbloqueables nuevos</li>
+            <li>Soporte integrado de controlador para mandos populares</li>
+            <li>Movimiento direccional analógico y velocidad</li>
+            <li>Toneladas de finales de calidad de película animada</li>
+            <li>Más de 100 semillas especializadas</li>
+            <li>Cooperativo local para 2 jugadores</li>
+            <li>Más de 100 personajes de cooperativo</li>
+            <li>Iluminación dinámica, efectos visuales y dirección artística</li>
+            <li>Motor de juego completamente nuevo a 60 FPS 24/7</li>
+            <li>Banda sonora y diseño de sonido completamente nuevos</li>
+            <li>Múltiples espacios de guardado</li>
+            <li>¡Física de caca!</li>
+            <li>El roguelike definitivo</li>
+            <li>Un montón de logros</li>
+            <br>
+          </ul>
+          <p><strong>Secretos Uber incluyendo:</strong></p>
+          <ul>
+            <li>10 personajes jugables</li>
+            <li>100+ enemigos, con nuevos diseños</li>
+            <li>Más de 50 jefes, incluyendo toneladas de jefes nuevos y raros</li>
+            <li>¡Habitaciones LLENAS DE CACA!</li>
+            <li>Runas Místicas</li>
+            <li>Tiendas mejorables</li>
+            <br>
+          </ul>
+
+        <div class="info-box">
+          <h3>Detalles</h3>
+          <ul>
+            <li>Desarrollador: Nicalis, Inc. / Edmund McMillen</li>
+            <li>Editor: Nicalis, Inc.</li>
+            <li>Plataforma: Windows, macOS, Linux</li>
+            <li>Género: Acción / Roguelike</li>
+          </ul>
+
+          <h3>Requisitos del sistema</h3>
+          <b>Mínimos</b>
+          <ul>
+            <li>Sistema operativo: XP</li>
+            <li>Procesador: Core 2 Duo</li>
+            <li>Memoria: 2 GB de RAM</li>
+            <li>Gráficos: Tarjeta de vídeo discreta</li>
+            <li>Almacenamiento: 449 MB de espacio disponible</li>
+            <li>Tarjeta de sonido: Sí</li>
+          </ul>
+          <b>Recomendados</b>
+          <ul>
+            <li>Sistema operativo: Windows 8 / 7 / Vista / XP</li>
+            <li>Procesador: 2.4 GHz Quad Core 2.0 o superior</li>
+            <li>Memoria: 8 GB de RAM</li>
+            <li>Gráficos: Intel HD Graphics 4000 o superior, ATI Radeon HD-Series 4650 o superior, Nvidia GeForce 2xx-Series o superior</li>
+            <li>Almacenamiento: 449 MB de espacio disponible</li>
+            <li>Tarjeta de sonido: Sí</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <div>
+          <h4>Steam</h4>
+          <p>Tu tienda digital para descubrir juegos y experiencias.</p>
+        </div>
+        <div class="footer-links">
+          <a href="../index.html">Inicio</a>
+          <a href="#">Soporte</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../app.js"></script>
+  </body>
+</html>

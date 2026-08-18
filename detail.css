@@ -67,6 +67,7 @@
 }
 
 .main-image-shell video.is-visible {
+  display: block;
   opacity: 1;
   transform: scale(1);
 }
@@ -153,6 +154,24 @@
   object-fit: cover;
   border-radius: 0;
   display: block;
+}
+
+.thumb {
+  position: relative;
+}
+
+.video-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 3px;
+  pointer-events: none;
+  letter-spacing: 0.5px;
 }
 
 .thumb.is-active {
@@ -342,6 +361,14 @@
   border-radius: 10px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   animation: pulseCover 2s ease-in-out infinite alternate;
+}
+
+.steam-principal {
+  color: #dfe7ff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.2s ease;
 }
 
 @keyframes pulseCover {
