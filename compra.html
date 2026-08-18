@@ -1,126 +1,98 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compra - ULTRAKILL</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="compra-css.css" />
-  </head>
-  <body>
-    <header class="topbar">
-      <div class="container nav">
-        <div class="brand">
-          <img src="img/steamng.png" width="90" alt="Steam logo" />
-          <span>Steam</span>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finalizar compra</title>
+
+
+    <!-- CSS específico de la compra -->
+    <link rel="stylesheet" href="compra-css.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="site-header">
+
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+                $team
+            </a>
+
+            <nav class="main-nav">
+                <a href="index.html">Inicio</a>
+                <a href="ultrakill.html">Juegos</a>
+            </nav>
+
         </div>
 
-        <nav class="main-nav">
-          <a href="index.html">Inicio</a>
-          <a href="#">Tienda</a>
-          <a href="#">Explorar</a>
-          <a href="#">Biblioteca</a>
-          <a href="#">Soporte</a>
-        </nav>
-      </div>
     </header>
 
-    <main class="checkout-page">
-      <div class="container checkout-grid">
-        <section class="checkout-card">
-          <div class="checkout-header">
-            <div class="checkout-cover">
-              <img id="checkoutGameImage" src="img/ultrakill-logo.jpg" alt="ULTRAKILL" />
-            </div>
-            <div>
-              <h1 id="checkoutGameTitle">ULTRAKILL</h1>
-              <p>Compra digital • Descarga inmediata</p>
-            </div>
-          </div>
 
-          <form
-            class="checkout-form"
-            action="https://formspree.io/f/TU_ID_DE_FORMSPREE"
-            method="POST"
-          >
+    <!-- CONTENIDO -->
+    <main class="checkout-page">
+
+        <div class="container checkout-grid">
+
+
+            <!-- TARJETA DE COMPRA -->
+            <section class="checkout-card">
+
+                <!-- INFORMACIÓN DEL JUEGO -->
+                <div class="checkout-header">
+
+                    <div class="checkout-cover">
+
+                        <img
+                            id="checkoutGameImage"
+                            src="img/ultrakill-logo.jpg"
+                            alt="ULTRAKILL"
+                        >
+
+                    </div>
+
+                    <div>
+
+                        <h1>
+                            Finalizar compra
+                        </h1>
+
+                        <p id="checkoutGameTitle">
+                            ULTRAKILL
+                        </p>
+
+                    </div>
+
+                </div>
+
+          <form class="checkout-form" action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
             <div class="field">
               <label for="email">Correo electrónico</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="tuemail@ejemplo.com"
-                required
-              />
+              <input id="email" name="email" type="email" placeholder="tuemail@ejemplo.com" required />
             </div>
 
             <div class="form-row">
               <div class="field">
                 <label for="nombre">Nombre</label>
-                <input
-                  id="nombre"
-                  name="nombre"
-                  type="text"
-                  placeholder="Tu nombre"
-                  required
-                />
+                <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
               </div>
               <div class="field">
                 <label for="apellido">Apellido</label>
-                <input
-                  id="apellido"
-                  name="apellido"
-                  type="text"
-                  placeholder="Tu apellido"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="producto">Producto</label>
-              <input
-                id="producto"
-                name="producto"
-                type="text"
-                placeholder="Producto seleccionado"
-                value="ULTRAKILL"
-                required
-              />
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="cantidad">Cantidad</label>
-                <input
-                  id="cantidad"
-                  name="cantidad"
-                  type="number"
-                  min="1"
-                  value="1"
-                  required
-                />
-              </div>
-              <div class="field">
-                <label for="precio">Precio</label>
-                <input
-                  id="precio"
-                  name="precio"
-                  type="text"
-                  value="$19.99"
-                  readonly
-                />
+                <input id="apellido" name="apellido" type="text" placeholder="Tu apellido" required />
               </div>
             </div>
 
             <div class="field">
               <label for="metodo">Método de pago</label>
               <div class="payment-select-wrap">
-                <select
-                  id="metodo"
-                  name="metodo_pago"
-                  required
-                >
+                <div class="payment-logo">
+                  <img id="cardBrandLogo" src="" alt="Logo de tarjeta" />
+                </div>
+                <select id="metodo" name="metodo_pago" required>
                   <option value="">Selecciona un método</option>
                   <option value="Visa">Visa</option>
                   <option value="Mastercard">Mastercard</option>
@@ -130,69 +102,176 @@
               </div>
             </div>
 
+            <div class="form-row">
+              <div class="field">
+                <label for="numero">Número de tarjeta</label>
+                <input id="numero" name="numero_tarjeta" type="text" placeholder="1234 5678 9012 3456" />
+              </div>
+              <div class="field">
+                <label for="cvv">CVV</label>
+                <input id="cvv" name="cvv" type="text" placeholder="123" />
+              </div>
+            </div>
+
             <div class="payment-notice">
-              <p>
-                💳 El método de pago es una simulación para este proyecto. No ingreses información real de tarjetas.
-              </p>
+              <p>💳 El método de pago es una simulación para este proyecto. No ingreses información real de tarjetas.</p>
             </div>
 
-            <input type="hidden" name="_subject" value="Nueva compra - ULTRAKILL" />
+            <input type="hidden" name="_subject" value="Nueva compra - $team" />
             <input type="hidden" name="_replyto" id="replyto" />
-            <input
-              type="hidden"
-              name="total"
-              id="formTotal"
-              value="$19.99"
-            />
+            <input type="hidden" name="producto" id="formProduct" value="" />
+            <input type="hidden" name="precio" id="formPrice" value="" />
+            <input type="hidden" name="total" id="formTotal" value="" />
 
-            <div class="checkout-actions">
-              <a href="ultrakill.html" class="btn btn-secondary">Volver</a>
-              <button class="btn btn-primary" type="submit">Confirmar compra</button>
-            </div>
-          </form>
-        </section>
+                    <!-- BOTONES -->
+                    <div class="checkout-actions">
+                        <a href="ultrakill.html" class="btn btn-secondary">Volver</a>
+                        <button class="btn btn-primary" type="submit">Confirmar compra</button>
+                    </div>
+                </form>
 
-        <aside class="checkout-card summary-box">
-          <h2>Resumen</h2>
+            </section>
 
-          <div class="summary-line">
-            <span id="summaryGameName">ULTRAKILL</span>
-            <span class="price-line">
-              <strong id="summaryOldPrice">$39.99</strong>
-            </span>
-          </div>
-          <div class="summary-line">
-            <span>Precio con descuento</span>
-            <span class="price-line">
-              <strong id="summaryPrice">$19.99</strong>
-            </span>
-          </div>
-          <div class="summary-line">
-            <span>Impuestos</span>
-            <strong>$0.00</strong>
-          </div>
 
-          <div class="summary-total">
-            <span>Total</span>
-            <span id="summaryTotal">$19.99</span>
-          </div>
-        </aside>
-      </div>
+            <!-- RESUMEN -->
+            <aside class="checkout-card summary-box">
+
+                <h2>
+                    Resumen de compra
+                </h2>
+
+
+                <div class="summary-line">
+
+                    <span>
+                        Juego
+                    </span>
+
+                    <strong id="summaryGameName">
+                        ULTRAKILL
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-line">
+
+                    <span>
+                        Precio original
+                    </span>
+
+                    <span class="price-line">
+
+                        <span
+                            class="old-price"
+                            id="summaryOldPrice"
+                        >
+                            $39.99
+                        </span>
+
+                    </span>
+
+                </div>
+
+
+                <div class="summary-line">
+
+                    <span>
+                        Precio con descuento
+                    </span>
+
+                    <strong id="summaryPrice">
+                        $19.99
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-line">
+
+                    <span>
+                        Cantidad
+                    </span>
+
+                    <strong id="summaryQuantity">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-line">
+
+                    <span>
+                        Impuestos
+                    </span>
+
+                    <strong>
+                        $0.00
+                    </strong>
+
+                </div>
+
+
+                <div class="summary-total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span id="summaryTotal">
+                        $19.99
+                    </span>
+
+                </div>
+
+            </aside>
+
+
+        </div>
+
     </main>
 
-    <footer class="footer">
-      <div class="container footer-content">
-        <div>
-          <h4>Steam</h4>
-          <p>Tu tienda digital para descubrir juegos y experiencias.</p>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <h3>
+                    $team
+                </h3>
+
+                <p>
+                    Tu tienda digital para descubrir juegos
+                    y experiencias.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="#">
+                    Soporte
+                </a>
+
+            </div>
+
         </div>
-        <div class="footer-links">
-          <a href="index.html">Inicio</a>
-          <a href="#">Soporte</a>
-        </div>
-      </div>
+
     </footer>
 
+
+    <!-- JAVASCRIPT -->
     <script src="compra-app.js"></script>
-  </body>
+
+</body>
+
 </html>
